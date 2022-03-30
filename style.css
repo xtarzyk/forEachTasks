@@ -18,3 +18,12 @@ body {
 .name {
   border: solid;
 }
+
+.newRow {
+  display: flex;
+  align-items: center;
+}
+
+.url {
+  margin: 10px;
+}

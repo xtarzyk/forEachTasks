@@ -82,16 +82,33 @@ stopsTimeouts()
 
 const links = [
     {label: 'Home', url: '/', color: '#000000'},
-    {label: 'Shop', url: '/https://google.pl/?q=shop', color: '#000000'},
-    {label: 'Dashboard', url: '/https://google.pl/?q=dashboard', color: '#000000'},
-    {label: 'Settings', url: '/https://google.pl/?q=settings', color: '#000000'},
-    {label: 'Sign out', url: '/https://google.pl/?q=sign%20out', color: '#e84118'}
+    {label: 'Shop', url: 'https://google.pl/?q=shop', color: '#000000'},
+    {label: 'Dashboard', url: 'https://google.pl/?q=dashboard', color: '#000000'},
+    {label: 'Settings', url: 'https://google.pl/?q=settings', color: '#000000'},
+    {label: 'Sign out', url: 'https://google.pl/?q=sign%20out', color: '#e84118'}
 ]
 
 const displayMenu = () => {
     const menu = document.querySelector('.menu')
     links.forEach(link => {
         const newRow = document.createElement('div')
+        const label = document.createElement('p')
+        const url = document.createElement('a')
 
+        newRow.classList.add('newRow')
+        url.classList.add('url')
+
+        label.textContent = `${link.label}`
+        label.setAttribute('style', `color: ${link.color}`)
+        url.textContent = `${link.url}`
+        url.setAttribute('href', `${link.url}`)
+        url.setAttribute('target', '_blank')
+        console.log(url)
+
+        newRow.appendChild(label)
+        newRow.appendChild(url)
+        menu.appendChild(newRow)
     })
 }
+
+displayMenu()
