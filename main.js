@@ -92,20 +92,17 @@ const displayMenu = () => {
     const menu = document.querySelector('.menu')
     links.forEach(link => {
         const newRow = document.createElement('div')
-        const label = document.createElement('p')
         const url = document.createElement('a')
 
         newRow.classList.add('newRow')
         url.classList.add('url')
 
-        label.textContent = `${link.label}`
-        label.setAttribute('style', `color: ${link.color}`)
-        url.textContent = `${link.url}`
+        url.setAttribute('style', `color: ${link.color}`)
+        url.textContent = `${link.label}`
         url.setAttribute('href', `${link.url}`)
         url.setAttribute('target', '_blank')
         console.log(url)
 
-        newRow.appendChild(label)
         newRow.appendChild(url)
         menu.appendChild(newRow)
     })
